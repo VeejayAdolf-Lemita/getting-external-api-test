@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API</title>
+</head>
+<body>
+  <p>
+    Qoutes 1 : <span id="q1"></span><br>
+    Author : <span id="author"></span>
+  </p>
+  
+  <script>
+    const api_url = 'https://type.fit/api/quotes';
+
+    async function getQoutes(){
+      const response = await fetch(api_url);
+      const data = await response.json();
+      
+      document.getElementById('q1').textContent = data[0].text
+      document.getElementById('author').textContent = data[0].author
+    }
+
+    getQoutes();
+  </script>
+</body>
+</html>
